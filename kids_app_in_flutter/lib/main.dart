@@ -1,4 +1,4 @@
-import 'package:alphabet_card_app_for_kids/PlayScreen.dart';
+import 'package:kids_app_in_flutter/PlayScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'SplashScreen.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Kids App',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.green,
       ),
       home: const SplashScreen(),
     );
@@ -62,49 +62,35 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               ListTile(
+                leading: const Icon(Icons.home),
                 title: const Text('Home',
                   style: TextStyle(
-                    color: Colors.orange,
-                    fontSize: 16.0,
+                    color: Colors.black45,
+                    fontSize: 14.0,
                   ),
                 ),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
                   Navigator.pop(context);
                 },
               ),
-              const SizedBox(
-                height: 10,
-                child: Divider(
-                  color: Colors.black,
-                ),
-              ),
               ListTile(
+                leading: const Icon(Icons.account_circle_rounded),
                 title: const Text('Account',
                   style: TextStyle(
-                    color: Colors.orange,
-                    fontSize: 16.0,
-                  ),),
+                    color: Colors.black45,
+                    fontSize: 14.0,
+                  ),
+                ),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
                   Navigator.pop(context);
                 },
               ),
-              const SizedBox(
-                height: 10,
-                child: Divider(
-                  color: Colors.black,
-                ),
-              ),
               ListTile(
+                leading: const Icon(Icons.settings_applications_rounded ),
                 title: const Text('Setting',
                   style: TextStyle(
-                    color: Colors.orange,
-                    fontSize: 16.0,
+                    color: Colors.black45,
+                    fontSize: 14.0,
                   ),),
                 onTap: () {
                   // Update the state of the app
@@ -113,35 +99,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pop(context);
                 },
               ),
-              const SizedBox(
-                height: 10,
-                child: Divider(
-                  color: Colors.black,
-                ),
-              ),
               ListTile(
+                leading: const Icon(Icons.article_rounded),
                 title: const Text('About us',
                   style: TextStyle(
-                    color: Colors.orange,
-                    fontSize: 16.0,
-                  ),),
+                    color: Colors.black45,
+                    fontSize: 14.0,
+                  ),
+                ),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
                   Navigator.pop(context);
                 },
               ),
-              const SizedBox(
-                height: 10,
-                child: Divider(
-                  color: Colors.black,
-                ),
-              ),
               ListTile(
+                leading: const Icon(Icons.info),
                 title: const Text('App info',
                   style: TextStyle(
-                    color: Colors.orange,
+                    color: Colors.black45,
                     fontSize: 16.0,
                   ),),
                 onTap: () {
@@ -168,67 +142,77 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Select Your Choice.',
+            Text('Select Alphabets which you want to learn.',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.blue),
+                color: Colors.orange),
               textAlign: TextAlign.center,),
-            GestureDetector(
-                onTap: () {
-                  alphaCase = true;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PlayScreen()),
-                  );
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.amberAccent,
-                    ),
-                    height: 60,
-                    width: 230,
-                    child: const Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text(
-                        'Capital A-Z',
-                        style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ))),
             const SizedBox(
               height: 30,
             ),
-            GestureDetector(
-                onTap: () {
-                  alphaCase = false;
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PlayScreen()),
-                  );
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.amberAccent,
-                    ),
-                    height: 60,
-                    width: 230,
-                    child: const Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text(
-                        'Small a-z',
-                        style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ))),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        alphaCase = true;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PlayScreen()),
+                        );
+                      },
+                      child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.green,
+                          ),
+                          height: 50,
+                          width: 180,
+                          child: const Padding(
+                            padding: EdgeInsets.all(12.0),
+                            child: Text(
+                              'Capital A-Z',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ))),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        alphaCase = false;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PlayScreen()),
+                        );
+                      },
+                      child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.green,
+                          ),
+                          height: 50,
+                          width: 180,
+                          child: const Padding(
+                            padding: EdgeInsets.all(12.0),
+                            child: Text(
+                              'Small a-z',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ))),
+                ],
+            ),
+
           ],
         ),
       ),

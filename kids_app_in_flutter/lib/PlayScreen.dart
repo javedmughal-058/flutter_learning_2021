@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:alphabet_card_app_for_kids/main.dart';
+import 'package:kids_app_in_flutter/main.dart';
 import 'package:flutter/material.dart';
 
 class PlayScreen extends StatefulWidget {
@@ -12,7 +12,7 @@ class PlayScreen extends StatefulWidget {
   _PlayScreenState createState() => _PlayScreenState();
 }
 
-List<String> CapitalAlphabets = [
+List<String> Capital = [
   'A',
   'B',
   'C',
@@ -40,7 +40,7 @@ List<String> CapitalAlphabets = [
   'Y',
   'Z',
 ];
-List<String> smallAlphabets = [
+List<String> small = [
   'a',
   'b',
   'c',
@@ -69,7 +69,6 @@ List<String> smallAlphabets = [
   'z',
 ];
 int count = 0;
-int alphacount=1;
 bool num = false;
 
 int seconds = 5;
@@ -102,9 +101,9 @@ class _PlayScreenState extends State<PlayScreen> {
             // ignore: avoid_print
             print('Time Ended');
             setState(() {
-              if (count < CapitalAlphabets.length - 1) {
+              if (count < Capital.length - 1) {
                 count++;
-                alphacount++;
+
                 seconds = 5;
                 startTimer();
               }
@@ -139,69 +138,69 @@ class _PlayScreenState extends State<PlayScreen> {
                 )
           ),
                 ListTile(
-                  title: const Text('Main Screen',
+                  leading: const Icon(Icons.home),
+                  title: const Text('Home',
                     style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 18.0,
+                      color: Colors.black45,
+                      fontSize: 14.0,
                     ),
                   ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.account_circle_rounded),
+                  title: const Text('Account',
+                    style: TextStyle(
+                      color: Colors.black45,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.settings_applications_rounded ),
+                  title: const Text('Setting',
+                    style: TextStyle(
+                      color: Colors.black45,
+                      fontSize: 14.0,
+                    ),),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
-                const SizedBox(
-                  height: 14,
-                  child: Divider(
-                    color: Colors.black,
+                ListTile(
+                  leading: const Icon(Icons.article_rounded),
+                  title: const Text('About us',
+                    style: TextStyle(
+                      color: Colors.black45,
+                      fontSize: 14.0,
+                    ),
                   ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                 ),
-          ListTile(
-            title: const Text('Capital A-Z',
-              style: TextStyle(
-                color: Colors.orange,
-                fontSize: 18.0,
-              ),
-            ),
-            onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              alphaCase = true;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PlayScreen()),
-              );
-            },
-          ),
-                const SizedBox(
-                  height: 14,
-                  child: Divider(
-                    color: Colors.black,
-                  ),
+                ListTile(
+                  leading: const Icon(Icons.info),
+                  title: const Text('App info',
+                    style: TextStyle(
+                      color: Colors.black45,
+                      fontSize: 16.0,
+                    ),),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.pop(context);
+                  },
                 ),
-          ListTile(
-            title: const Text('small a-z',
-              style: TextStyle(
-                color: Colors.orange,
-                fontSize: 18.0,
-              ),),
-            onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              alphaCase = false;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PlayScreen()),
-              );
-            },
-          ),
                 const SizedBox(
                   height: 14,
                   child: Divider(
@@ -213,7 +212,7 @@ class _PlayScreenState extends State<PlayScreen> {
         ),
 
         appBar: AppBar(
-          title: const Text('Learn Alphabets'),
+          title: const Text('Alphabets'),
         ),
         body: Container(
           width: MediaQuery.of(context).size.width,
@@ -253,16 +252,16 @@ class _PlayScreenState extends State<PlayScreen> {
                 children: [
                       FloatingActionButton(
                           elevation: 20,
-                          backgroundColor: Colors.amberAccent,
+                          backgroundColor: Colors.green,
                           child: const Icon(
                             Icons.arrow_back,
                             color: Colors.white,
                           ),
                           onPressed: () {
                             setState(() {
-                              if (count < CapitalAlphabets.length - 1) {
+                              if (count < Capital.length - 1) {
                                 count--;
-                                alphacount--;
+
                                 seconds = 5;
                                 startTimer();
                               }
@@ -273,16 +272,15 @@ class _PlayScreenState extends State<PlayScreen> {
                       ),
                       FloatingActionButton(
                           elevation: 20,
-                          backgroundColor: Colors.amberAccent,
+                          backgroundColor: Colors.green,
                           child: const Icon(
                             Icons.forward,
                             color: Colors.white,
                           ),
                           onPressed: () {
                             setState(() {
-                              if (count < CapitalAlphabets.length - 1) {
+                              if (count < Capital.length - 1) {
                                 count++;
-                                alphacount++;
                                 seconds = 5;
                                 startTimer();
                               }
@@ -315,14 +313,14 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
               alphaCase == true
                   ? Text(
-                      '${CapitalAlphabets[count]}',
+                      '${Capital[count]}',
                       style: const TextStyle(
                           color: Colors.blue,
                           fontSize: 120,
                           fontWeight: FontWeight.w600),
                     )
                   : Text(
-                      '${smallAlphabets[count]}',
+                      '${small[count]}',
                       style: const TextStyle(
                           color: Colors.blue,
                           fontSize: 120,
@@ -345,40 +343,7 @@ class _PlayScreenState extends State<PlayScreen> {
                         });
                       })
                   : Container(),
-              //  FloatingActionButton(
-              //     elevation: 20,
-              //     backgroundColor: Colors.green,
-              //     child: const Icon(Icons.pause),
-              //     onPressed: () {
-              //       setState(() {
-              //         // count;
-              //         // seconds = 5;
-              //         num = false;
-              //       });
-              //     }),
-              const SizedBox(
-                height: 14,
-                child: Divider(
-                  color: Colors.black,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Alphabets Read: $alphacount',
-                      style: const TextStyle(
-                          color: Colors.teal,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
-                    ),
 
-                  ],
-                ),
-              ),
             ],
           ),
         ));
