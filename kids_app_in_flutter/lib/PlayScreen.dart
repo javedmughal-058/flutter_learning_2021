@@ -137,72 +137,78 @@ class _PlayScreenState extends State<PlayScreen> {
                   ),
                 )
           ),
-                ListTile(
-                  leading: const Icon(Icons.home),
-                  title: const Text('Home',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14.0,
-                    ),
+                const SizedBox(
+                  height: 8,
+                  child: Divider(
+                    color: Colors.black,
                   ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.account_circle_rounded),
-                  title: const Text('Account',
+                  title: const Text('Main Screen',
                     style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14.0,
+                      color: Colors.green,
+                      fontSize: 18.0,
                     ),
                   ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.settings_applications_rounded ),
-                  title: const Text('Setting',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14.0,
-                    ),),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.article_rounded),
-                  title: const Text('About us',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.info),
-                  title: const Text('App info',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 16.0,
-                    ),),
-                  onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyHomePage()),
+                    );
                   },
                 ),
                 const SizedBox(
-                  height: 14,
+                  height: 8,
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Capital A-Z',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    alphaCase = true;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlayScreen()),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 8,
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+                ListTile(
+                  title: const Text('small a-z',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 18.0,
+                    ),),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    alphaCase = false;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlayScreen()),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 8,
                   child: Divider(
                     color: Colors.black,
                   ),
@@ -224,110 +230,65 @@ class _PlayScreenState extends State<PlayScreen> {
               const SizedBox(
                 height: 30,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Time Left: $seconds',
-                      style: const TextStyle(
-                          color: Colors.teal,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    const SizedBox(
-                      height: 14,
-                      child: Divider(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                      FloatingActionButton(
-                          elevation: 20,
-                          backgroundColor: Colors.green,
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              if (count < Capital.length - 1) {
-                                count--;
-
-                                seconds = 5;
-                                startTimer();
-                              }
-                            });
-                          }),
-                      const SizedBox(
-                        width: 220,
-                      ),
-                      FloatingActionButton(
-                          elevation: 20,
-                          backgroundColor: Colors.green,
-                          child: const Icon(
-                            Icons.forward,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              if (count < Capital.length - 1) {
-                                count++;
-                                seconds = 5;
-                                startTimer();
-                              }
-                            });
-                          }),
-                ],
-              ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 17,
-                  ),
-                  Text('Previous',
-                    style: const TextStyle(
-                        color: Colors.teal,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),),
-                  const SizedBox(
-                    width: 210,
-                  ),
-                  Text('Next',
-                    style: const TextStyle(
-                        color: Colors.teal,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),),
-                ],
-              ),
-              const SizedBox(
-                height: 60,
-              ),
               alphaCase == true
                   ? Text(
                       '${Capital[count]}',
                       style: const TextStyle(
-                          color: Colors.blue,
+                          color: Colors.orange,
                           fontSize: 120,
                           fontWeight: FontWeight.w600),
                     )
                   : Text(
                       '${small[count]}',
                       style: const TextStyle(
-                          color: Colors.blue,
+                          color: Colors. blueAccent,
                           fontSize: 120,
                           fontWeight: FontWeight.w600),
                     ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  FloatingActionButton(
+                      elevation: 20,
+                      backgroundColor: Colors.green,
+                      child: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (count < Capital.length - 1) {
+                            count--;
+
+                            seconds = 5;
+                            startTimer();
+                          }
+                        });
+                      }),
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  FloatingActionButton(
+                      elevation: 20,
+                      backgroundColor: Colors.green,
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (count < Capital.length - 1) {
+                            count++;
+                            seconds = 5;
+                            startTimer();
+                          }
+                        });
+                      }),
+                ],
+              ),
               const SizedBox(
-                height: 120,
+                height: 20,
               ),
               num == false
                   ? FloatingActionButton(
@@ -343,7 +304,31 @@ class _PlayScreenState extends State<PlayScreen> {
                         });
                       })
                   : Container(),
-
+              SizedBox(
+                height: 20.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Time Remaining: $seconds',
+                      style: const TextStyle(
+                          color: Colors.orange,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    const SizedBox(
+                      height: 14,
+                      child: Divider(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ));
