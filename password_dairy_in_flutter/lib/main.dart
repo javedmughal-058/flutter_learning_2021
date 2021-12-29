@@ -69,9 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListTile(title: Text(list[index]),);
               }),
            ):Text("")
-          //Bhai ho gaya....  security code demand nhi kry ga?
-           // security code apnan user se liy a hai kya... G.
-//konse variable main storre krwaya hai.
+      
           ],
         ),
       ),
